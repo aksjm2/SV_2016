@@ -2,7 +2,7 @@ package testproject;
 
 public class main {
 	
-	public static void main(int args[])
+	public static void main(String args[])
 	{
 		System.out.println("Testing...");
 		
