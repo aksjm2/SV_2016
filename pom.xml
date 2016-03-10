@@ -28,30 +28,13 @@
 		        <archive>  
 		            <manifest>  
 		                <addClasspath>true</addClasspath>  
-		                <mainClass>src.main.Test</mainClass>
+		                <mainClass>src.Test</mainClass>
 				<classpathPrefix>${lib.dir}/</classpathPrefix>
 		            </manifest>  
 		        </archive>  
 		    </configuration>  
 		</plugin>  
-	    <plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-dependency-plugin</artifactId>
-	            <version>2.3</version>
-	            <executions>
-	                <execution>
-	                    <id>copy-dependencies</id>
-	                    <phase>package</phase>
-	                    <goals>
-	                        <goal>copy-dependencies</goal>
-	                    </goals>
-	                </execution>
-	            </executions>
-	            <configuration>
-	                <outputDirectory>${deploy.target.dir}/${lib.dir}</outputDirectory>
-	                <overWriteIfNewer>true</overWriteIfNewer>
-	            </configuration>
-	        </plugin>
+	  	<plugin>
 	   </plugins>
    </build>
  
