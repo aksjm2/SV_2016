@@ -14,21 +14,46 @@
  
  
    <properties> 
-     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+     <deploy.target.dir>c:/myproject</deploy.target.dir>
+     <lib.dir>lib</lib.dir>
+     <jar.name>myprogram</jar.name>
    </properties> 
- 
-<plugin>  
-<groupId>org.apache.maven.plugins</groupId>  
-    <artifactId>maven-jar-plugin</artifactId>  
-    <configuration>  
-        <archive>  
-            <manifest>  
-                <addClasspath>true</addClasspath>  
-                <mainClass>src.main.Test</mainClass>  
-            </manifest>  
-        </archive>  
-    </configuration>  
-</plugin>  
+
+   <build>
+	   <plugins>
+		<plugin>  
+		    <groupId>org.apache.maven.plugins</groupId>  
+		    <artifactId>maven-jar-plugin</artifactId>  
+		    <configuration>  
+		        <archive>  
+		            <manifest>  
+		                <addClasspath>true</addClasspath>  
+		                <mainClass>src.main.Test</mainClass>
+				<classpathPrefix>${lib.dir}/</classpathPrefix>
+		            </manifest>  
+		        </archive>  
+		    </configuration>  
+		</plugin>  
+	    <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-dependency-plugin</artifactId>
+	            <version>2.3</version>
+	            <executions>
+	                <execution>
+	                    <id>copy-dependencies</id>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>copy-dependencies</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	            <configuration>
+	                <outputDirectory>${deploy.target.dir}/${lib.dir}</outputDirectory>
+	                <overWriteIfNewer>true</overWriteIfNewer>
+	            </configuration>
+	        </plugin>
+	   </plugins>
+   </build>
  
    <dependencies> 
      <dependency> 
