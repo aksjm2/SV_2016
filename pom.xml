@@ -11,13 +11,6 @@
  
    <name>SV2016</name> 
    <url>http://maven.apache.org</url> 
- 
- 
-   <properties> 
-     <deploy.target.dir>c:/myproject</deploy.target.dir>
-     <lib.dir>lib</lib.dir>
-     <jar.name>myprogram</jar.name>
-   </properties> 
 
    <build>
 	   <plugins>
@@ -28,8 +21,8 @@
 		        <archive>  
 		            <manifest>  
 		                <addClasspath>true</addClasspath>  
-		                <mainClass>src.Test</mainClass>
-				<classpathPrefix>${lib.dir}/</classpathPrefix>
+		                <mainClass>Test</mainClass>
+				<classpathPrefix>lib/</classpathPrefix>
 		            </manifest>  
 		        </archive>  
 		    </configuration>  
